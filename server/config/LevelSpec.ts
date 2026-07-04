@@ -18,6 +18,7 @@ export interface LevelClue {
   type: CollectibleType;
   x: number;
   y: number;
+  num: number;
   color: CollectibleColor;
   orientation?: CollectibleOrientation; // 0, 90, 180, 270
   isFlipped?: boolean;
@@ -78,6 +79,7 @@ export function parseUnrealExport(data: any): LevelSpec {
         type,
         x: clue.x + offset,
         y: clue.y + offset,
+        num: clue.num,
         color: colorMap[clue.color] || "NEUTRAL"
       };
 

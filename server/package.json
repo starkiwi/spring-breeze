@@ -1,7 +1,7 @@
 {
-  "name": "polar-winds-server",
+  "name": "summer-breeze-server",
   "version": "1.0.0",
-  "description": "Colyseus multiplayer game server for Polar Winds",
+  "description": "Colyseus multiplayer game server for Summer Breeze",
   "type": "module",
   "main": "index.ts",
   "scripts": {

@@ -23,7 +23,7 @@ function buildReturnUrl(returnUrl: string, params: Record<string, string | numbe
 
 // Types
 type PlayerColor = "RED" | "GREEN" | "BLUE";
-type CollectibleType = "network" | "box" | "equilibrium" | "clone" | "vantage";
+type CollectibleType = "network" | "box" | "equilibrium" | "clone" | "vantage" | "checkpoint";
 
 interface UnlockedMilestone {
   type: string;
@@ -48,6 +48,7 @@ interface Collectible {
   y: number;
   color: CollectibleColor;
   id: string;
+  num: number;
   type: CollectibleType;
   isActivated: boolean;
   isGold: boolean;
@@ -257,6 +258,7 @@ const Index = () => {
         y: collectible.y,
         color: collectible.color,
         id: collectible.id,
+        num: collectible.num,
         type: collectible.type,
         isActivated: collectible.isActivated,
         isGold: collectible.isGold,

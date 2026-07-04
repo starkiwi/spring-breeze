@@ -75,7 +75,7 @@ const MainMenu = () => {
             id="main-menu-title"
             className="text-4xl font-bold text-white tracking-tight"
           >
-            Polar Winds
+            Summer Breeze
           </h1>
           <p className="text-slate-500 text-sm">Enter a name and pick a mode to play.</p>
         </header>

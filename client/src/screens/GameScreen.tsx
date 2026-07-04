@@ -8,13 +8,13 @@ import { Bloom, EffectComposer } from "@react-three/postprocessing";
 import * as THREE from "three";
 import { Player } from "@/components/Player";
 import { ParticleFloor } from "@/components/ParticleFloor";
-
 import { CubeFrame } from "@/components/CubeFrame";
 import { Hand } from "@/components/Hand";
 import { EquilateralTriangle } from "@/components/EquilateralTriangle";
 import { Compass } from "@/components/Compass";
 import { GalaxyModel } from "@/components/GalaxyModel";
 import { Polyomino } from "@/components/Polyomino";
+import { EquilibriumCube } from "@/components/EquilibriumCube";
 import { GoldAura } from "@/components/GoldAura";
 import { PulseRipple } from "@/components/game/PulseRipple";
 import { FloatingScore } from "@/components/FloatingScore";
@@ -43,7 +43,7 @@ import {
 // Types
 type PlayerColor = "RED" | "GREEN" | "BLUE";
 type ClueColorLower = "red" | "green" | "blue";
-type CollectibleType = "network" | "box" | "equilibrium" | "clone" | "vantage" | "galaxy" | "polyomino";
+type CollectibleType = "network" | "box" | "equilibrium" | "clone" | "vantage" | "galaxy" | "polyomino" | "checkpoint";
 type CollectibleOrientation = 0 | 90 | 180 | 270;
 
 interface PlayerState {
@@ -61,6 +61,7 @@ interface Collectible {
   y: number;
   color: string;
   id: string;
+  num: number;
   type: CollectibleType;
   isActivated: boolean;
   isGold: boolean;
@@ -2155,6 +2156,7 @@ export const GameScreen = ({
             <ConnectionLines key={`lines-${gridWidth}-${gridHeight}`} nodeStates={nodeStates} gridWidth={gridWidth} gridHeight={gridHeight} />
 
             {/* Collectibles */}
+            {/* EDIT COLLECTIBLE SHAPES HERE!!!!!! */}
             {collectibles.map((collectible) => {
               const pos = getVisualPos(collectible.x, collectible.y, -2.0);
               const displayColor = getDisplayColor(collectible.color);
@@ -2227,6 +2229,54 @@ export const GameScreen = ({
                     </GoldAura>
                   </group>
                 );
+              } else if (collectible.type === "checkpoint") {
+                  console.log("collectible: " + collectible.num);
+                  if (collectible.num == 1) { //shape for first
+                    return (
+                      <group key={collectible.id} position={pos}>
+                        <GoldAura isGold={collectible.isGold} color={collectible.color}>
+                          <Compass color={displayColor} scale={1.0} connected={collectible.isActivated} />
+                        </GoldAura>
+                      </group>
+                    )
+                  }
+                  else if (collectible.num == 2) { //shape for second
+                    return (
+                      <group key={collectible.id} position={pos}>
+                        <GoldAura isGold={collectible.isGold} color={collectible.color}>
+                          <LambdaSymbol color={displayColor} scale={1.0} connected={collectible.isActivated} />
+                        </GoldAura>
+                      </group>
+                    )
+                  }
+                  else if (collectible.num == 3) { //shape for third
+                    return (
+                      <group key={collectible.id} position={pos}>
+                        <GoldAura isGold={collectible.isGold} color={collectible.color}>
+                          <EquilateralTriangle color={displayColor} scale={1.0} connected={collectible.isActivated} />
+                        </GoldAura>
+                      </group>
+                    )
+                  }
+                  else if (collectible.num == 4) { //shape for fourth
+                    return (
+                      <group key={collectible.id} position={pos}>
+                        <GoldAura isGold={collectible.isGold} color={collectible.color}>
+                          <EquilibriumCube color={displayColor} scale={1.0} connected={collectible.isActivated} />
+                        </GoldAura>
+                      </group>
+                    )
+                  }
+                  else {
+                    return (
+                    <group key={collectible.id} position={pos}>
+                        <GoldAura isGold={collectible.isGold} color={collectible.color}>
+                          <EquilibriumCube color={displayColor} scale={1.0} connected={collectible.isActivated} />
+                        </GoldAura>
+                      </group>
+                    )
+                  }
+                // repeat for each number
               }
 
 

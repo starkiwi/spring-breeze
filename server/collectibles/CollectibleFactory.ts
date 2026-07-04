@@ -7,9 +7,10 @@ import { CloneCollectible } from "./CloneCollectible";
 import { VantageCollectible } from "./VantageCollectible";
 import { GalaxyCollectible } from "./GalaxyCollectible";
 import { PolyominoCollectible } from "./PolyominoCollectible";
+import { CheckpointCollectible } from "./CheckpointCollectible";
 
 export class CollectibleFactory {
-  private static handlers: Map<CollectibleType, BaseCollectible> = new Map([
+  private static handlers: Map<CollectibleType, BaseCollectible> = new Map<CollectibleType, BaseCollectible>([
     ["network", new NetworkCollectible()],
     ["box", new BoxCollectible()],
     ["equilibrium", new EquilibriumCollectible()],
@@ -17,6 +18,7 @@ export class CollectibleFactory {
     ["vantage", new VantageCollectible()],
     ["galaxy", new GalaxyCollectible()],
     ["polyomino", new PolyominoCollectible()],
+    ["checkpoint", new CheckpointCollectible()]
   ]);
 
   static getHandler(type: CollectibleType): BaseCollectible {

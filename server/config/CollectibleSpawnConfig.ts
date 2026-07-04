@@ -13,6 +13,7 @@ export const COLLECTIBLE_PROPERTIES: Record<CollectibleType, CollectibleProperti
   vantage: { spawnsOnNodes: false, isNeutral: false },
   galaxy: { spawnsOnNodes: true, isNeutral: false },
   polyomino: { spawnsOnNodes: true, isNeutral: false },
+  checkpoint: { spawnsOnNodes: true, isNeutral: false},
 };
 
 export interface CollectibleSpawnRule {

@@ -5,16 +5,10 @@
   ],
   "collectible_spawn_rules": [
     {
-      "clue_type": "network",
+      "clue_type": "checkpoint",
       "first_stage": 1,
-      "num_initial": 5,
-      "num_subsequent": 3
-    },
-    {
-      "clue_type": "polyomino",
-      "first_stage": 3,
-      "num_initial": 7,
-      "num_subsequent": 4
-  }
+      "num_initial": 4,
+      "num_subsequent": 0
+    }
 ]
 }

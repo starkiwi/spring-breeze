@@ -82,7 +82,7 @@ export function PolarWindsTitle() {
                 bevelOffset={0}
                 bevelSegments={3}
             >
-                POLAR WINDS
+                SUMMER BREEZE
                 {/* Invisible main mesh body */}
                 <meshBasicMaterial visible={false} />
             </Text3D>
