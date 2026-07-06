@@ -16,6 +16,8 @@ import { GalaxyModel } from "@/components/GalaxyModel";
 import { Polyomino } from "@/components/Polyomino";
 import { EquilibriumCube } from "@/components/EquilibriumCube";
 import { GoldAura } from "@/components/GoldAura";
+import { Flower01 } from "@/components/Flower01";
+import { FlowerBase } from "@/components/FlowerBase";
 import { PulseRipple } from "@/components/game/PulseRipple";
 import { FloatingScore } from "@/components/FloatingScore";
 import { ClickHandler } from "@/components/ClickHandler";
@@ -2235,34 +2237,7 @@ export const GameScreen = ({
                     return (
                       <group key={collectible.id} position={pos}>
                         <GoldAura isGold={collectible.isGold} color={collectible.color}>
-                          <Compass color={displayColor} scale={1.0} connected={collectible.isActivated} />
-                        </GoldAura>
-                      </group>
-                    )
-                  }
-                  else if (collectible.num == 2) { //shape for second
-                    return (
-                      <group key={collectible.id} position={pos}>
-                        <GoldAura isGold={collectible.isGold} color={collectible.color}>
-                          <LambdaSymbol color={displayColor} scale={1.0} connected={collectible.isActivated} />
-                        </GoldAura>
-                      </group>
-                    )
-                  }
-                  else if (collectible.num == 3) { //shape for third
-                    return (
-                      <group key={collectible.id} position={pos}>
-                        <GoldAura isGold={collectible.isGold} color={collectible.color}>
-                          <EquilateralTriangle color={displayColor} scale={1.0} connected={collectible.isActivated} />
-                        </GoldAura>
-                      </group>
-                    )
-                  }
-                  else if (collectible.num == 4) { //shape for fourth
-                    return (
-                      <group key={collectible.id} position={pos}>
-                        <GoldAura isGold={collectible.isGold} color={collectible.color}>
-                          <EquilibriumCube color={displayColor} scale={1.0} connected={collectible.isActivated} />
+                          <Flower01 color={displayColor} scale={1.0} connected={collectible.isActivated} />
                         </GoldAura>
                       </group>
                     )
@@ -2271,7 +2246,7 @@ export const GameScreen = ({
                     return (
                     <group key={collectible.id} position={pos}>
                         <GoldAura isGold={collectible.isGold} color={collectible.color}>
-                          <EquilibriumCube color={displayColor} scale={1.0} connected={collectible.isActivated} />
+                          <FlowerBase color={displayColor} scale={1.0} connected={collectible.isActivated} />
                         </GoldAura>
                       </group>
                     )
